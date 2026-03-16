@@ -2,7 +2,7 @@ ADMIN_ID = 0
 API_TOKEN = ""
 
 PAYMENT_PROVIDER_TOKEN = ""
-CURRENCY = "PLN"
+CURRENCY = "USD"
 
 TOPUP_AMOUNTS = [
     {"amount": 5000, "title": "50 USD", "description": "Top up your account by 50 USD"},
