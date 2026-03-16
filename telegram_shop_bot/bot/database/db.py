@@ -130,7 +130,6 @@ def delete_item(item_id):
 
 
 def get_all_items():
-    """Pobiera wszystkie dostępne produkty"""
     with get_connection() as conn:
         cur = conn.cursor()
         cur.execute("SELECT id, name, price, qty, city, district FROM items WHERE qty > 0")
@@ -139,7 +138,6 @@ def get_all_items():
 
 
 def get_item_by_id(item_id):
-    """Pobiera pojedynczy produkt po ID"""
     with get_connection() as conn:
         cur = conn.cursor()
         cur.execute("SELECT id, name, price, qty, city, district FROM items WHERE id=?", (item_id,))
@@ -150,7 +148,6 @@ def get_item_by_id(item_id):
 
 
 def purchase_item(user_id, item_id, quantity=1):
-    """Realizuje zakup produktu"""
     with get_connection() as conn:
         cur = conn.cursor()
 
@@ -197,7 +194,6 @@ def purchase_item(user_id, item_id, quantity=1):
 
 
 def create_payment_transaction(user_id, amount, currency, telegram_charge_id, provider_charge_id):
-    """Tworzy nową transakcję płatniczą"""
     with get_connection() as conn:
         cur = conn.cursor()
         cur.execute("""
@@ -210,7 +206,6 @@ def create_payment_transaction(user_id, amount, currency, telegram_charge_id, pr
 
 
 def complete_payment_transaction(telegram_charge_id, user_id):
-    """Oznacza transakcję jako ukończoną i dodaje środki do konta"""
     with get_connection() as conn:
         cur = conn.cursor()
 
@@ -252,7 +247,6 @@ def complete_payment_transaction(telegram_charge_id, user_id):
 
 
 def get_payment_transactions(user_id=None, limit=50):
-    """Pobiera transakcje płatnicze"""
     with get_connection() as conn:
         cur = conn.cursor()
         if user_id:
