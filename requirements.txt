@@ -1,0 +1,6 @@
+Python
+Aiogram
+SQLite
+Telegram Bot API
+FSM (Finite State Machine)
+Async programming
